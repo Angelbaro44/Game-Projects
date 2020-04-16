@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Pokemon League Championship Match</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+        <section id ='headerSec1'>
+		<header>
+            
+			<img style="height: 50px; width:auto;"  src='image/squritle line ani.gif'><h1>Pokemon League Championship Match</h1><img style="height: 50px; width:auto;" src='image/bulbasaur line ani.gif'>
+        </header>
+        <span style="display:none"> <audio id="myVideo" controls autoplay loop>
+            <source  src="image/cynthia-theme.mp4" type="audio/mpeg">
+        </audio></span>
+    </section>
+        <div id="divVs">
+        <img class="vsimg" src='image/ash ani.gif'>
+
+		<div class="scoreboard">
+			<div style="font-size: 20px;" id="user-label" class="nametag"><p>Ash Katchum</p></div>
+			<div  style="font-size: 20px;"id="comp-label" class="nametag"><p>Champion Cynthia</p></div>
+            <span id="user-score"><p>0</p></span>VS<span id="comp-score"><p>0</p></span>
+            
+		</div>
+        <img class="vsimg" src='image/cynthia ani.gif'>
+    </div>
+		<div class="result">
+			<p>Choose your type of pokemon...</p>
+		</div>
+
+		<div class="choices">
+			<div class="choice" id="rock">
+                <img class="typeimg" src='image/leaf stone ani.gif'>
+			</div>
+			<div class="choice" id="paper">
+				<img class="typeimg" src='image/fire stone ani.gif'>
+			</div>
+			<div class="choice" id="scissors">
+				<img class="typeimg" src='image/water stone ani.gif'>
+			</div>
+		</div>
+
+        <p id="action-message">Make your move</p>
+        
+        
+        
+	</body>
+	<script src="./scr/index.js"></script>
+</html>
