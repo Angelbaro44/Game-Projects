@@ -123,7 +123,6 @@ function drawBall() {
                         ctx.closePath();} 
 }
 
-// ctx.drawImage(rioluLeft, paddleX, canvas.height-paddleHeight,paddleWidth,paddleHeight);
 function drawPaddle() {
     ctx.beginPath();
     if(leftPressed === true){
@@ -155,8 +154,7 @@ function drawPaddle2() {
     ctx.fillStyle = mayleneLeft;
     ctx.fill();
     ctx.closePath();}
-    // ctx.drawImage(mayleneLeft,aniCount*66,0,66,59,x-20,0,100,100);
-    // ctx.fillStyle = mayleneLeft;
+
 if(dx>0){
     ctx.beginPath();
     ctx.drawImage(mayleneRight,aniCount*68,0,66,59,x-20,0,130,100);     
@@ -193,7 +191,7 @@ function draw() {
         dy = -dy;
     }
     else if(y + dy > canvas.height-paddleHeight) {
-        if(x > paddleX -10  && x < paddleX + 10 + paddleWidth) {
+        if(x > paddleX -30  && x < paddleX + 10 + 75) {
             dx++;
             dy++;
             score++;
@@ -215,8 +213,8 @@ function draw() {
         paddleX -= 8;
     }
     
-    // x += dx;
-    // y += dy;
+    x += dx;
+    y += dy;
 }
 document.querySelector("button:nth-child(1)").addEventListener("click", ()=> interval = setInterval(draw, 20));
 document.querySelector("button:nth-child(2)").addEventListener("click", ()=> interval = setInterval(draw, 15));
