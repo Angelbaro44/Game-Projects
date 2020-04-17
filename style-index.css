@@ -30,6 +30,7 @@ section{
     width:90%;
     border-radius: 30%;
     flex-direction: column;
+    height: 1500px;
 }
 a{
 display: flex;
@@ -50,7 +51,7 @@ height: auto;
    background-position: left;
 height: 300px;
 margin: 30px;
-margin-bottom: 200;
+margin-bottom: 300px;
 color: greenyellow;
 text-shadow:2px 2px fuchsia;
 font-size: 30px;
