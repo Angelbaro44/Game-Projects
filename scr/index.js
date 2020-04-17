@@ -53,6 +53,8 @@ function game(userChoice){
 }
 function win(userChoice, compChoice){
 	userScore++;
+	win1.pause();
+	win1.load();
 	win1.play();
 	userScore_span.innerHTML = userScore;
 	showCompChoice(compChoice);
@@ -61,6 +63,8 @@ function win(userChoice, compChoice){
 
 function lose(userChoice, compChoice){
 	compScore++;
+	lose1.pause();
+	lose1.load();
 	lose1.play();
 	compScore_span.innerHTML = compScore;
 	showCompChoice(compChoice);
@@ -69,6 +73,8 @@ function lose(userChoice, compChoice){
 
 function draw(userChoice, compChoice){
 	showCompChoice(compChoice);
+	tie1.pause();
+	tie1.load();
 	tie1.play();
 	result_p.innerHTML = `Your <span style="color:#00E4F2;">${makeWord(userChoice)}</span>-type Pokemon is the same type as Cynthia's <span style="color:#F9F345;">${makeWord(compChoice)}</span> type Pokemon.<br> It's a draw! Both Pokemon fainted.`;
 }

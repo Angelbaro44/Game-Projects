@@ -7,6 +7,12 @@ var ballRadius = canvas.width/20;
 var paddleHeight = canvas.height/6;
 var paddleWidth = canvas.width/8;
 var paddleX = (canvas.width-paddleWidth)/2;
+var aniCount = 0;
+// Paddle properties
+var paddleHeight2 = 90;
+var paddleWidth2 = 90;
+var paddleX2 = (canvas.width-paddleWidth)/2;
+var aniCount = 0;
 // position and speed properties
 var x = Math.floor((Math.random() * canvas.width) / 2);
 var y = Math.floor((Math.random() * 50) + paddleHeight + 5);
@@ -31,18 +37,26 @@ var loveball6 = new Image();
 loveball6.src = 'images/real black fire.png'; 
 // Player paddle img storeage
 var rioluLeft = new Image();   
-rioluLeft.src = 'images/riolu left.png'; 
+rioluLeft.src = 'images/riolu sheet left.png'; 
 var rioluRight = new Image();   
-rioluRight.src = 'images/riolu right.png'; 
+rioluRight.src = 'images/riolu sheet right.png'; 
 var rioluUp = new Image();   
-rioluUp.src = 'images/riolu up-right.png'; 
-var maylene = new Image();   
-maylene.src ='images/hooh.png'; 
-var canvasBack = new Image();   
-canvasBack.src = 'images/18oiwrk32uilpgif.gif'; 
+rioluUp.src = 'images/riolu sheet center.png'; 
+var canvasBack = new Image();
+canvasBack.src ='images/18oiwrk32uilpgif.gif';
+
+var mayleneRight = new Image();   
+mayleneRight.src ='images/hooh sheet right.png'; 
+var mayleneLeft = new Image();   
+mayleneLeft.src = 'images/hooh sheet left.png'; 
+var mayleneCenter = new Image();   
+mayleneCenter.src ='images/hooh sheet center.png';  
 // keypad Event Listener
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+
+setInterval(() =>{
+    aniCount = (aniCount+1)%3},120 )
 //<!--------------------------------------------------------------!>
 
 // Keypad Hold Down Event Executer
@@ -109,28 +123,23 @@ function drawBall() {
                         ctx.closePath();} 
 }
 
-// 
+// ctx.drawImage(rioluLeft, paddleX, canvas.height-paddleHeight,paddleWidth,paddleHeight);
 function drawPaddle() {
     ctx.beginPath();
-        //  ctx.clearRect(0, 0, canvas.width, canvas.height);
-       // ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
     if(leftPressed === true){
-    //  ctx.clearRect(0, 0, canvas.width, canvas.height);
-     ctx.drawImage(rioluLeft, paddleX, canvas.height-paddleHeight,paddleWidth,paddleHeight);
-     ctx.fillStyle = rioluLeft;
+        ctx.drawImage(rioluLeft,aniCount*256,0,256,300,paddleX,canvas.height-paddleHeight,75,75);     
+        ctx.fillStyle = rioluLeft;
      ctx.fill();
      ctx.closePath();
      console.log('helo left')}
   if(rightPressed === true){
-    //  ctx.clearRect(0, 0, canvas.width, canvas.height);
-     ctx.drawImage(rioluRight, paddleX, canvas.height-paddleHeight,paddleWidth,paddleHeight);
+     ctx.drawImage(rioluRight,aniCount*256,0,256,300,paddleX,canvas.height-paddleHeight,75,75);     
      ctx.fillStyle = rioluRight;
      ctx.fill();
      ctx.closePath();
      console.log('helo right')}
    if(rightPressed === leftPressed){
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(rioluUp, paddleX, canvas.height-paddleHeight,paddleWidth,paddleHeight);
+        ctx.drawImage(rioluUp,aniCount*250,0,230,220,paddleX,canvas.height-paddleHeight,75,75);     
         ctx.fillStyle = rioluUp;
         ctx.fill();
         ctx.closePath();
@@ -140,15 +149,31 @@ function drawPaddle() {
 
 // 
 function drawPaddle2() {
+  if(dx<0){
     ctx.beginPath();
-    ctx.drawImage(maylene, x - 20, 0 ,paddleWidth + 100,paddleHeight + 20);
-    ctx.fillStyle = maylene;
+    ctx.drawImage(mayleneLeft,aniCount*68,0,66,59,x-20,0,130,100);     
+    ctx.fillStyle = mayleneLeft;
     ctx.fill();
-    ctx.closePath();
+    ctx.closePath();}
+    // ctx.drawImage(mayleneLeft,aniCount*66,0,66,59,x-20,0,100,100);
+    // ctx.fillStyle = mayleneLeft;
+if(dx>0){
+    ctx.beginPath();
+    ctx.drawImage(mayleneRight,aniCount*68,0,66,59,x-20,0,130,100);     
+    ctx.fillStyle = mayleneRight;
+    ctx.fill();
+    ctx.closePath();}
+if(!(dx<0) && !(dx>0)){
+        ctx.beginPath();
+        ctx.drawImage(mayleneCenter,aniCount*68,0,63,59,x-20,0,130,100);     
+        ctx.fillStyle = mayleneCenter;
+        ctx.fill();
+        ctx.closePath();} 
+    
 }
-
 // 
 function draw() {
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(canvasBack,0, 0, canvas.width, canvas.height)
     drawBall();
@@ -190,8 +215,8 @@ function draw() {
         paddleX -= 8;
     }
     
-    x += dx;
-    y += dy;
+    // x += dx;
+    // y += dy;
 }
 document.querySelector("button:nth-child(1)").addEventListener("click", ()=> interval = setInterval(draw, 20));
 document.querySelector("button:nth-child(2)").addEventListener("click", ()=> interval = setInterval(draw, 15));

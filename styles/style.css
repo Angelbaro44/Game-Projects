@@ -9,14 +9,13 @@ body {
   padding: 0;
   text-align: center;
     /* background-image: url(images/color-gradient-background.jpg); */
-  background: url(../images/color-gradient-background.jpg);
+  background: url(./images/color-gradient-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
 #myCanvas{
-  
-  /* background-image: url(images/18oiwrk32uilpgif.gif); */
-  /* border: 1px solid red; */
+  max-width: 100%;
+  align-self: center;
 }
 button{
   align-self: center;
