@@ -45,6 +45,13 @@ rioluUp.src = 'images/riolu sheet center.png';
 var canvasBack = new Image();
 canvasBack.src ='images/18oiwrk32uilpgif.gif';
 
+var boop = new Audio();
+boop.src ='images/431327__someguy22__8-bit-text-blip-low-pitch.wav'
+var lose = new Audio();
+lose.src ='images/violin.wav'
+var title = new Audio();
+title.src ='images/Getsu Fuma Den final boss music arrangement [FAMITRACKER VRC6].mp3'
+
 var mayleneRight = new Image();   
 mayleneRight.src ='images/hooh sheet right.png'; 
 var mayleneLeft = new Image();   
@@ -54,6 +61,7 @@ mayleneCenter.src ='images/hooh sheet center.png';
 // keypad Event Listener
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+
 
 setInterval(() =>{
     aniCount = (aniCount+1)%3},120 )
@@ -171,7 +179,7 @@ if(!(dx<0) && !(dx>0)){
 }
 // 
 function draw() {
-
+    title.play();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(canvasBack,0, 0, canvas.width, canvas.height)
     drawBall();
@@ -180,6 +188,7 @@ function draw() {
     document.querySelector("body > h1").innerText= score + ' FireBalls Blocked'
     console.log(y)
     if(score === 25 ){
+        title.pause();
         alert("Wow you won the game!!!! What a godly player O.o");
         document.location.reload();
         clearInterval(interval); // Needed for Chrome to end game
@@ -188,6 +197,7 @@ function draw() {
         dx = -dx;
     }
     if(y + dy < paddleHeight) {
+        boop.play();
         dy = -dy;
     }
     else if(y + dy > canvas.height-paddleHeight) {
@@ -197,10 +207,12 @@ function draw() {
             score++;
             console.log(score)
             dy = -dy;
+            boop.play()
 
         }
         else {
-            // alert("GAME OVER");
+            lose.play();
+            alert("GAME OVER");
             document.location.reload();
             clearInterval(interval); // Needed for Chrome to end game
         }
