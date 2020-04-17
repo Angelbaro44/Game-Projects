@@ -1,0 +1,42 @@
+
+
+*{
+}
+
+body{
+    background-image: url(wp-feature-box_e7e7e7.svg);
+background-size: cover;
+
+
+
+}
+h1{
+    background-size: cover;
+}
+div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+section{
+
+
+}
+a{
+display: flex;
+
+}
+img{
+justify-content: space-around;
+width: 300px;
+height: auto;
+
+}
+#imgpong{
+
+    width: 400px;
+}
+#divid1{
+    background-image: url(retro banner.jpg);
+    border:2px solid red;
+}
