@@ -1,11 +1,13 @@
 
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 *{
+    justify-content: space-around;
 }
 
 body{
-    background-image: url(wp-feature-box_e7e7e7.svg);
+    background-image: url('vaporwave back 2.png');
 background-size: cover;
+margin: 0;
 
 
 
@@ -17,10 +19,17 @@ div{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    height: 1000px;
 }
 section{
-
-
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('div2 maybe.jpg');
+    background-size: cover;  
+    width:90%;
+    border-radius: 30%;
+    flex-direction: column;
 }
 a{
 display: flex;
@@ -37,6 +46,12 @@ height: auto;
     width: 400px;
 }
 #divid1{
-    background-image: url(retro banner.jpg);
-    border:2px solid red;
+   background-image: url('retro banner.jpg');
+   background-position: left;
+height: 300px;
+margin: 30px;
+margin-bottom: 200;
+color: greenyellow;
+text-shadow:2px 2px fuchsia;
+font-size: 30px;
 }
