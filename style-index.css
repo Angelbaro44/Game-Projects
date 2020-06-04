@@ -64,17 +64,19 @@ genATag{
 }
 
 .zillsection1{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: #002b41a8;
-    background-position: bottom;
-    width: 100%;
-    border-radius: 10%;
-    flex-direction: row;
-    height: 100%;
-    margin-right: auto;
-    font-size: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background: #002b41a8;
+	background-position: bottom;
+	width: 70%;
+	border-radius: 10%;
+	flex-direction: row;
+	height: 100%;
+	/* margin-right: auto; */
+	font-size: 10;
+	padding: 40px;
+	margin: 40px;
 
 }
 .zilla{
@@ -103,18 +105,18 @@ background-color: rgba(0, 0, 0, 0.733);
     width:50%;
 }
 #divid1{
-height: 30px;
-margin: 30px;
-margin-bottom: 30px;
-background: #00121b9a;
-text-align-last: center;
-font-size: 40;
-max-width: 60%;
-display: flex;
-place-items: center;
-margin-left: 50;
-color: rgb(228, 224, 218);
-flex-direction: column;
+    /* height: 30px; */
+    margin: 30px;
+    /* margin-bottom: 30px; */
+    background: #00121b9a;
+    text-align-last: center;
+    font-size: 40;
+    /* max-width: 60%; */
+    display: flex;
+    place-items: center;
+    /* margin-left: 50; */
+    color: rgb(228, 224, 218);
+    flex-direction: column;
 
 }
 /* FOOTER */
