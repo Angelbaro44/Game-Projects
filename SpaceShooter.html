@@ -21,8 +21,8 @@
   border: 5px double black;
   background-image: url(desert.png);
   background-size: cover;
-  width: 500px;
-  height: 500px;
+  width: 1400px;
+  height: 900px;
   left: 0px;
   top: 0px;
   position: absolute;
@@ -69,7 +69,7 @@
 <body>
 <div id="background">
   <button id='start'>Click Anywhere to start the Skermish.<br><br>Protect the Oaisis from the alien invader!<br>Provide air support for the ground units by killing as meny aliens as you can in th air.<br>BASIC TRAINING:<br>Move Left and Right with your Arrow Keys<br>Shoot your Laser with the Space Bar<br></button>
-</div>
+
 <div id="hero"></div>
 <div class="laser" id="laser0"></div>
 <div class="laser" id="laser1"></div>
@@ -79,7 +79,7 @@
 <div class="laser" id="laser5"></div>
 <div id="score"></div>
 <div id="gameover">GAME OVER</div>
-
+</div>
 
 
 
@@ -94,7 +94,7 @@ var SPACE_KEY = 32;
 var HERO_MOVEMENT = 10;
 
 var lastLoopRun = 0;
-var score = 0;
+var score = 100;
 var iterations = 0;
 
 var controller = new Object();
@@ -151,11 +151,11 @@ function ensureBounds(sprite, ignoreY) {
   if (!ignoreY && sprite.y < 20) {
     sprite.y = 20;
   }
-  if (sprite.x + sprite.w > 480) {
-    sprite.x = 480 - sprite.w;
+  if (sprite.x + sprite.w > 1350) {
+    sprite.x = 1350 - sprite.w;
   }
-  if (!ignoreY && sprite.y + sprite.h > 480) {
-    sprite.y = 480 - sprite.h;
+  if (!ignoreY && sprite.y + sprite.h > 1350) {
+    sprite.y = 1350 - sprite.h;
   }
 }
 
@@ -240,12 +240,22 @@ function checkCollisions() {
       playerpop.play();
 
       gameOver();
-    } else if (enemies[i].y + enemies[i].h >= 500) {
+    } else if (enemies[i].y + enemies[i].h >= 900) {
       var element = document.getElementById(enemies[i].element);
       element.style.visibility = 'hidden';
       element.parentNode.removeChild(element);
       enemies.splice(i, 1);
       i--;
+      score -= 100;
+    }
+    else if (score === 0) {
+      score -= 100;
+      playerpop.pause();
+      playerpop.load();
+      playerpop.play();
+      gameTrack.pause();
+      gameTrack.load();
+      gameOver();
     }
   }
 }
@@ -295,7 +305,7 @@ function addEnemy() {
   
   if (getRandom(interval) == 0) {
     var elementName = 'enemy' + getRandom(10000000);
-    var enemy = createSprite(elementName, getRandom(450), -40, 50, 50);
+    var enemy = createSprite(elementName, getRandom(1450), -40, 100, 100);
     
     var element = document.createElement('div');
     element.id = enemy.element;
@@ -336,7 +346,7 @@ function loop() {
     toggleKey(evt.keyCode, false);
   };
 
-  var hero = createSprite('hero', 250, 460, 80, 80);
+  var hero = createSprite('hero', 725, 460, 80, 80);
   var lasers = new Array();
     for (var i = 0; i < 6; i++) {
     lasers[i] = createSprite('laser' + i, 0, -120, 10, 40);}

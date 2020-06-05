@@ -10,7 +10,7 @@
   <body>
     <!-- <img id="back" src="images/Pokemon-Emerald-GIF-Find-and-Share-on-GIPHY.gif"> -->
     <h1>Help Riolu Protect His Home!!!<br>Block the FireBalls form burning his Village.</h1>
-    <section>
+    <section id=hide onclick="hide()">
       <button id="startButton">Ho Oh seems Relaxed </button>
     <button id="startButton">Ho Oh seems Annoyed</button>
     <button id="startButton">Ho Oh seems Angry</button>
@@ -18,9 +18,14 @@
     </div>
   
 
-      <canvas id="myCanvas" width="800" height="400"></canvas>
+      <canvas id="myCanvas" width="1000" height="600"></canvas>
     </div>
 
     <script type="text/javascript" src="js/index.js"></script>
+    <script>
+      function hide() {
+          document.getElementById("hide").style.display = "none";
+      }
+      </script>
   </body>
 </html>
