@@ -42,7 +42,10 @@ genATag{
 	background-color: red;
 	
 }
-
+#aboutMeP{
+	font-size: larger;
+	line-height: inherit;
+}
 .zilldiv{
     display: flex;
     align-items: center;
