@@ -44,7 +44,7 @@ genATag{
 }
 #aboutMeP{
 	font-size: larger;
-	line-height: inherit;
+	line-height: 10px;
 }
 .zilldiv{
     display: flex;
