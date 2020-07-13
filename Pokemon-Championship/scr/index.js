@@ -205,12 +205,12 @@ function update_result(compChoice, score, sound, message) {
 	sound.pause();
 	sound.load();
 	sound.play();
-	
+
 	score + 1;
 
 	
 	showCompChoice(compChoice);
-	result_p.innerHTML = message;
+	result_p.innerHTML = message; 
 }
 
 function game(userChoice){
