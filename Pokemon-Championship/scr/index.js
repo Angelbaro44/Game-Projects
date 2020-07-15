@@ -246,10 +246,7 @@ function hideChoices(){
 }
 
 function main(){
-	rock_div.addEventListener('click', function(){
-		game("rock");
-		rock_div.classList.add("playerChoice");
-	});
+	
  
 	paper_div.addEventListener('click', function(){
 		game("paper");
