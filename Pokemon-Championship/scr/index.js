@@ -140,32 +140,30 @@
 
 
 
-let userScore = 0;
-let compScore = 0;
+let userScore        = 0;
+let compScore        = 0;
 // var vid = document.getElementById("myVideo");
 // vid.volume = 0.4;
-let userScore_span = document.getElementById("user-score");
-let compScore_span = document.getElementById("comp-score");
+let userScore_span   = document.getElementById("user-score");
+let compScore_span   = document.getElementById("comp-score");
 const scoreBoard_div = document.querySelector(".nametag");
-const result_p = document.querySelector(".result > p");
-const rock_div = document.getElementById("rock");
-const paper_div = document.getElementById("paper");
-const scissors_div = document.getElementById("scissors");
+const result_p       = document.querySelector(".result > p");
+const rock_div       = document.getElementById("rock");
+const paper_div      = document.getElementById("paper");
+const scissors_div   = document.getElementById("scissors");
+
+
+var gameTrack = createAudioFromFile("image/cynthia-theme.mp3");
+var win       = createAudioFromFile("image/win1.mp3");
+var lose      = createAudioFromFile("image/lose1.wav");
+var draw      = createAudioFromFile("image/tie1.wav");
 
 function createAudioFromFile(filename) {
 	var track = document.createElement("audio");
 	track.src = filename;
 	return track;
 }
-var gameTrack = createAudioFromFile("image/cynthia-theme.mp3");
-var win1      = createAudioFromFile("image/win1.mp3");
-var lose1     = createAudioFromFile("image/lose1.wav");
-var tie1      = createAudioFromFile("image/tie1.wav");
-gameTrack.play();
 
-// Array.prototype.random = function() {
-// 	return this[Math.floor(Math.random() * this.length)];
-// };
 
 function getCompChoice(){	
 	return ["rock", "paper", "scissors"][Math.round(Math.random()*3)];
@@ -178,47 +176,57 @@ function game(userChoice){
 		case "rockscissors":
 		case "scissorspaper":
 		case "paperrock":
-			win(userChoice, compChoice);
+			battle(win,userScore);
 			break;
 		case "scissorsrock":
 		case "paperscissors":
 		case "rockpaper":
-			lose(userChoice, compChoice);
+			battle(lose,compScore);
 			break;
 		case "rockrock":
 		case "paperpaper":
 		case "scissorsscissors":
-			draw(userChoice, compChoice);
+			battle(draw,null);
 			break;
 	}
 }
-function win(userChoice, compChoice){
-	userScore++;
-	win1.pause();
-	win1.load();
-	win1.play();
-	userScore_span.innerHTML = userScore;
-	showCompChoice(compChoice);
-	result_p.innerHTML = `Your <span style="color:#00E4F2;">${makeWord(userChoice)}</span>-type Pokemon beat Cynthia's <span style="color:#F9F345;">${makeWord(compChoice)}</span>-type Pokemon!<br> You won this match - Ready your next Pokemon.`;
-}
 
-function lose(userChoice, compChoice){
-	compScore++;
-	lose1.pause();
-	lose1.load();
-	lose1.play();
+function battle(gameCondition,pointCounter) {
+	pointCounter+=100; 
+	gameCondition.pause();
+	gameCondition.load();
+	gameCondition.play();
+	userScore_span.innerHTML = userScore;
 	compScore_span.innerHTML = compScore;
 	showCompChoice(compChoice);
-	result_p.innerHTML = `Your <span style="color:#00E4F2;"> ${makeWord(userChoice)}</span>-type Pokemon got beaten by Champion Cynthia's <span style="color:#F9F345;">${makeWord(compChoice)}</span>-type Pokemon!<br> You lost this match - Ready your next Pokemon.`;
 }
+// function win(userChoice, compChoice){
+// 	userScore++; 
+// 	win1.pause();
+// 	win1.load();
+// 	win1.play();
+// 	userScore_span.innerHTML = userScore;
+// 	showCompChoice(compChoice);
+// 	result_p.innerHTML = `Your <span style="color:#00E4F2;">${makeWord(userChoice)}</span>-type Pokemon beat Cynthia's <span style="color:#F9F345;">${makeWord(compChoice)}</span>-type Pokemon!<br> You won this match - Ready your next Pokemon.`;
+// }
 
-function draw(userChoice, compChoice){
-	showCompChoice(compChoice);
-	tie1.pause();
-	tie1.load();
-	tie1.play();
-	result_p.innerHTML = `Your <span style="color:#00E4F2;">${makeWord(userChoice)}</span>-type Pokemon is the same type as Cynthia's <span style="color:#F9F345;">${makeWord(compChoice)}</span> type Pokemon.<br> It's a draw! Both Pokemon fainted.`;
-}
+// function lose(userChoice, compChoice){
+// 	compScore++;
+// 	lose1.pause();
+// 	lose1.load();
+// 	lose1.play();
+// 	compScore_span.innerHTML = compScore;
+// 	showCompChoice(compChoice);
+// 	result_p.innerHTML = `Your <span style="color:#00E4F2;"> ${makeWord(userChoice)}</span>-type Pokemon got beaten by Champion Cynthia's <span style="color:#F9F345;">${makeWord(compChoice)}</span>-type Pokemon!<br> You lost this match - Ready your next Pokemon.`;
+// }
+
+// function draw(userChoice, compChoice){
+// 	showCompChoice(compChoice);
+// 	tie1.pause();
+// 	tie1.load();
+// 	tie1.play();
+// 	result_p.innerHTML = `Your <span style="color:#00E4F2;">${makeWord(userChoice)}</span>-type Pokemon is the same type as Cynthia's <span style="color:#F9F345;">${makeWord(compChoice)}</span> type Pokemon.<br> It's a draw! Both Pokemon fainted.`;
+// }
 function makeWord(letter){
 	if (letter === "rock") return "Grass";
 	if (letter === "paper") return "Fire";
@@ -246,8 +254,11 @@ function hideChoices(){
 }
 
 function main(){
-	
- 
+	rock_div.addEventListener('click', function(){
+		game("rock");
+		rock_div.classList.add("playerChoice");
+	});
+
 	paper_div.addEventListener('click', function(){
 		game("paper");
 		paper_div.classList.add("playerChoice");
@@ -258,7 +269,7 @@ function main(){
 		scissors_div.classList.add("playerChoice");
 	})
 };
- 
+
 main();
 var vid = document.getElementById("myVideo");
-vid.volume = .05;
+vid.volume = 0.1;
