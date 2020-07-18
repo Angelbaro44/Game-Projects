@@ -258,7 +258,7 @@ function main(){
 		scissors_div.classList.add("playerChoice");
 	})
 };
-
+ 
 main();
 var vid = document.getElementById("myVideo");
 vid.volume = .05;
