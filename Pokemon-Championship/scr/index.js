@@ -83,14 +83,11 @@ function displayMessage(gameCondition,userChoice,compChoice) {
 	}
 
 	function showCompChoice(compChoice) {
-		if (compChoice === "rock") {
-			rock_div.classList.add("computorChoice");
+		if (compChoice !== "rock") {
+			compChoice === "paper" ? paper_div.classList.add("computorChoice") : scissors_div.classList.add("computorChoice");
 		}
-		if (compChoice === "paper") {
-			paper_div.classList.add("computorChoice");
-		}
-		if (compChoice === "scissors") {
-			scissors_div.classList.add("computorChoice");
+		else {
+			rock_div.classList.add("computorChoice")
 		}
 	}
 
