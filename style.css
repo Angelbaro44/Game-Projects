@@ -1,0 +1,18 @@
+.body{
+      background-image:url(all-in-one-background.svg);
+      background-color: lightpink;
+}
+angelfood{
+      border:1px solid black; 
+      border-radius: 2px;
+      height:fit-content; 
+      width: fit-content; 
+      padding: 1px 5px;
+      font-size: 15px;
+}
+angelfood:hover{
+      background-color: rgb(228, 227, 227);
+}
+div{
+      width: 50%;
+}
