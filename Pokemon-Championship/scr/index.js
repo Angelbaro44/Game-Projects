@@ -28,7 +28,7 @@ function getCompChoice() {
 }
 
 function game(userChoice) {
-	window.onclick   = hideChoices();
+	// window.onclick   = hideChoices();
 	const compChoice = getCompChoice();
 	switch (userChoice + compChoice) {
 		case "rockscissors":
@@ -100,14 +100,17 @@ function displayMessage(gameCondition,userChoice,compChoice) {
 	function main() {
 		rock_div.addEventListener('click', function () {
 			game("rock");
+			rock_div.classList.remove    ("computorChoice", "playerChoice");
 			rock_div.classList.add("playerChoice");
 		});
 		paper_div.addEventListener('click', function () {
 			game("paper");
+			paper_div.classList.remove   ("computorChoice", "playerChoice");
 			paper_div.classList.add("playerChoice");
 		});
 		scissors_div.addEventListener('click', function () {
 			game("scissors");
+			scissors_div.classList.remove("computorChoice", "playerChoice");
 			scissors_div.classList.add("playerChoice");
 		})
 	};
