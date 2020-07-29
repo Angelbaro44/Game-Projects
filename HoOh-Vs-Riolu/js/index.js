@@ -185,8 +185,7 @@ function draw() {
     drawBall();
     drawPaddle();
     drawPaddle2(); 
-    document.querySelector("body > h1").innerText= score + ' FireBalls Blocked'
-    console.log(y)
+    document.querySelector("body > h1").innerText= `${score} is blocked.`
     if(score === 25 ){
         title.pause();
         alert("Wow you won the game!!!! What a godly player O.o");
