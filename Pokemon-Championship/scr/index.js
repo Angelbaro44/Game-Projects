@@ -28,7 +28,7 @@ function getCompChoice() {
 }
 
 function game(userChoice) {
-	// window.onclick   = hideChoices();
+	window.onclick   = hideChoices();
 	const compChoice = getCompChoice();
 	switch (userChoice + compChoice) {
 		case "rockscissors":
@@ -50,9 +50,9 @@ function game(userChoice) {
 }
 
 function battle(gameCondition,userChoice,compChoice) {
-	if (gameCondition !== draw) {
+	if (gameCondition !== draw) 
 	    gameCondition === win ? userScore += 100 : compScore += 100;
-	}
+	
 	gameCondition.pause();
 	gameCondition.load();
 	gameCondition.play();
